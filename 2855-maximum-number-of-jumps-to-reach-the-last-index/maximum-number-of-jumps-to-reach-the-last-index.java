@@ -2,8 +2,7 @@ class Solution {
     boolean flag = false;
     Integer dp[][];
     public int maximumJumps(int[] nums, int target) {
-        dp = new Integer[nums.length+1][nums.length+1];
-        // if(target == 0 ) return -1;
+        dp = new Integer[nums.length][nums.length];
         int ans = solve(nums, target, 0, 1);
         if(!flag) return -1;
         return ans;
