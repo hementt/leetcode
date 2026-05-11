@@ -1,19 +1,23 @@
 class Solution {
-    Integer dp[][];
     public int integerBreak(int n) {
-        dp = new Integer[n+1][n+1];
-        return solve(n, n, 1);
-    }
-    public int solve(int n, int target ,int i){
         
-        if(target == 0) return 1;
-        if(i >=  n || target < 0) return 0;
+        int dp[][] = new int[n+1][n+1];
 
-        if(dp[i][target] != null) return dp[i][target];
+        for(int i =0; i<=n;i++) dp[i][0] = 1;
 
-        int include = i * solve(n, target - i, i);
-        int exclude = solve(n, target, i+1);
+        for(int i = n-1;i>=1;i--){
+            for(int j =1; j<=n; j++){
 
-        return dp[i][target] = Math.max(include, exclude);
+                int exclude = dp[i+1][j];
+
+                int include =0;
+                if(j >= i) include = i * dp[i][j - i];
+
+                dp[i][j] = Math.max(include , exclude);
+            }
+        }
+
+        return dp[1][n];
+
     }
 }
