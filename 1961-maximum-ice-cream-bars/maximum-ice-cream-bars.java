@@ -8,6 +8,8 @@ class Solution {
             if(target - num >= 0){
                 count++;
                 target -= num;
+            }else{
+                break;
             }
         }
 
