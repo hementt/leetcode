@@ -9,7 +9,7 @@ class Solution {
         if(i == text1.length() || j == text2.length()) return 0;
 
         if(dp[i][j] != null) return dp[i][j];
-
+        
         if(text1.charAt(i) == text2.charAt(j)) return dp[i][j] =  1 + solve(text1, text2, i+1, j+1);
 
         int skip1 = solve(text1, text2, i+1, j);
