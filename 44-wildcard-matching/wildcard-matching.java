@@ -9,7 +9,7 @@ class Solution {
             return true;
         }
         if(j == p.length()) return false;
-
+        if(dp[i][j] != null) return dp[i][j];
         if(i == s.length()){
             while(j < p.length()){
                 if(p.charAt(j) != '*') return false;
@@ -18,7 +18,7 @@ class Solution {
             return true;
         }
 
-        if(dp[i][j] != null) return dp[i][j];
+        
 
         boolean match = false;
         boolean skip = false;
