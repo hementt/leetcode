@@ -12,7 +12,7 @@ class Solution {
                     return true;
                 }
             }else{
-                map.putIfAbsent(rem, i);
+                map.put(rem, i);
             }
         }
         return false;
